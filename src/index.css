@@ -4,4 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
-
+@layer components {
+  .navitem {
+    @apply cursor-pointer h-full flex items-center hover:text-veryvarkblue hover:border-b-[3px] hover:border-orange
+  }
+  .active {
+    @apply opacity-50 border-2 border-orange
+  }
+}
