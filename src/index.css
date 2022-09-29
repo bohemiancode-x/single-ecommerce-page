@@ -11,4 +11,6 @@
   .active {
     @apply opacity-50 border-2 border-orange
   }
+
 }
+

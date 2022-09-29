@@ -1,6 +1,8 @@
 import cart from '../assets/images/icon-cart.svg'
 import plus from '../assets/images/icon-plus.svg'
 import minus from '../assets/images/icon-minus.svg'
+import Slider from './Slider'
+import { useState } from 'react'
 
 //images
 import productOne from '../assets/images/image-product-1.jpg'
@@ -13,10 +15,16 @@ import productFour from '../assets/images/image-product-4.jpg'
 import productFourThumbnail from '../assets/images/image-product-4-thumbnail.jpg'
 
 export default function Product() {
+    const [open, setOpen] = useState(false);
+    const close = () => {
+        setOpen(false)
+    }
+
   return (
     <div className='flex flex-col md:flex-row md:py-10 md:mt-12'>
+        
         <div className='h-[20rem] overflow-hidden md:h-full md:mr-5'>
-            <img className=' md:rounded-xl' src={productOne} alt="" />
+            <img onClick={() => setOpen(true)} className=' md:rounded-xl cursor-pointer' src={productOne} alt="" />
             <ul className='hidden md:flex justify-around mt-8'>
                 <img className='active h-20 rounded-xl hover:opacity-50 cursor-pointer' src={productOneThumbnail} alt="" />
                 <img className='h-20 rounded-xl hover:opacity-50 cursor-pointer' src={productTwoThumbnail} alt="" />
@@ -52,6 +60,8 @@ export default function Product() {
 
             </div>
         </div>
+
+        <Slider open={open} close={close} />
 
     </div>
   )
