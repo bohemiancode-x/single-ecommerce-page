@@ -10,9 +10,10 @@ export default function Slider({ open, close }) {
   return (
         <div>
             <Lightbox
-                styles={{ container: { backgroundColor: "rgba(0, 0, 0, 0.9)" },
+                styles={{ container: { backgroundColor: "rgba(0, 0, 0, 0.9)", padding: '10%' },
                         thumbnailsContainer: { backgroundColor: "rgba(0, 0, 0, 0.9)" },
-                        thumbnail: {padding: 0},
+                        thumbnail: {padding: 0, border: 3, height: '75px', width: '75px'},
+                        // button: {color: 'black', backgroundColor: 'white', borderRadius: '99px', padding: '5px', margin: '250px'},
                     }}
                 open={open}
                 close={() => close()}

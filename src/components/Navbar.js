@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import logo from '../assets/images/logo.svg'
 import cart from '../assets/images/icon-cart.svg'
 import avatar from '../assets/images/image-avatar.png'
@@ -6,6 +7,7 @@ import hamburger from '../assets/images/icon-menu.svg'
 
 //components
 import Modal from './Modal'
+import Cart from './Cart'
 
 const navitems = [
     {
@@ -32,10 +34,15 @@ const navitems = [
 
 
 export default function Navbar() {
+    const { value } = useSelector((state) => state.counter);
     const [nav, setNav] = useState(false)
+    const [openCart, setOpenCart] = useState(false)
 
     const toggleNav = () => {
         setNav(!nav)
+    }
+    const toggleCart = () => {
+        setOpenCart(!openCart)
     }
 
   return (
@@ -55,13 +62,15 @@ export default function Navbar() {
             ))}
         </ul>
 
-         <div className='flex ml-auto items-center gap-6'>
-            <img className='h-5 cursor-pointer' src={cart} alt="cart" />
+         <div className='flex ml-auto items-center gap-6 relative'>
+            <img onClick={() => toggleCart()} className='h-6 cursor-pointer' src={cart} alt="cart" />
+            <span className='absolute bottom-6 left-3 bg-orange text-white px-[6px] font-bold text-xs rounded-lg'>{value}</span>
             <img className='h-8 md:h-10 cursor-pointer hover:border-orange hover:border-2 rounded-full' src={avatar} alt="avatar" />
          </div>
 
          <span className='hidden md:block h-[1px] w-full bg-grayishblue/50 absolute bottom-0'></span>
          <Modal nav={nav} toggleNav={toggleNav} />
+         <Cart openCart={openCart} toggleCart={toggleCart} />
 
     </div>
   )
