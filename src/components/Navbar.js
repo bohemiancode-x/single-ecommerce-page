@@ -35,6 +35,7 @@ const navitems = [
 
 export default function Navbar() {
     const { value } = useSelector((state) => state.counter);
+    const { active } = useSelector((state) => state.cart);
     const [nav, setNav] = useState(false)
     const [openCart, setOpenCart] = useState(false)
 
@@ -44,6 +45,7 @@ export default function Navbar() {
     const toggleCart = () => {
         setOpenCart(!openCart)
     }
+  
 
   return (
     <div className='px-3 py-3 md:px-0 md:py-0 md:h-[10%] flex items-center relative'>
@@ -64,13 +66,13 @@ export default function Navbar() {
 
          <div className='flex ml-auto items-center gap-6 relative'>
             <img onClick={() => toggleCart()} className='h-6 cursor-pointer' src={cart} alt="cart" />
-            <span className='absolute bottom-6 left-3 bg-orange text-white px-[6px] font-bold text-xs rounded-lg'>{value}</span>
+            <span className={active ? 'absolute bottom-6 left-3 bg-orange text-white px-[6px] font-bold text-xs rounded-lg' : 'hidden'}>{value}</span>
             <img className='h-8 md:h-10 cursor-pointer hover:border-orange hover:border-2 rounded-full' src={avatar} alt="avatar" />
          </div>
 
          <span className='hidden md:block h-[1px] w-full bg-grayishblue/50 absolute bottom-0'></span>
          <Modal nav={nav} toggleNav={toggleNav} />
-         <Cart openCart={openCart} toggleCart={toggleCart} />
+         <Cart openCart={openCart}  />
 
     </div>
   )

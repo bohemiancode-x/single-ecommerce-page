@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const cartSlice = createSlice({
     name: 'cartactive',
     initialState: {
-        active: null,
+        active: false,
     },
     reducers: {
         isActive: (state) => {

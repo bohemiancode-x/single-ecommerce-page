@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { incrementByAmount } from "../redux/counter"
 import cart from '../assets/images/icon-cart.svg'
 import plus from '../assets/images/icon-plus.svg'
 import minus from '../assets/images/icon-minus.svg'
+import { isActive } from "../redux/cartslice"
 
 
 export default function Info() {
@@ -15,8 +16,11 @@ export default function Info() {
         }
     }
     const addToCart = () => {
-        dispatch(incrementByAmount(count));
-        setCount(0)
+        if (count > 0 ) {
+            dispatch(incrementByAmount(count));
+            dispatch(isActive());
+            setCount(0)
+        }
     }
 
   return (
