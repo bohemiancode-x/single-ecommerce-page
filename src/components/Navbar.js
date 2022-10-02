@@ -33,15 +33,11 @@ const navitems = [
 ]
 
 
-export default function Navbar() {
+export default function Navbar({ nav, toggleNav }) {
     const { value } = useSelector((state) => state.counter);
     const { active } = useSelector((state) => state.cart);
-    const [nav, setNav] = useState(false)
     const [openCart, setOpenCart] = useState(false)
 
-    const toggleNav = () => {
-        setNav(!nav)
-    }
     const toggleCart = () => {
         setOpenCart(!openCart)
     }

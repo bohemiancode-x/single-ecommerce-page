@@ -24,7 +24,7 @@ export default function Info() {
     }
 
   return (
-    <div className='px-6 mt-5 md:px-12 md:mt-10'>
+    <div className='px-6 mt-5 mb-5 md:px-12 md:mt-10'>
             <h3 className='text-orange text-sm font-bold'>SNEAKER COMPANY</h3>
             <h1 className='text-3xl md:text-5xl font-bold'>Fall Limited Edition Sneakers</h1>
             <p className='mt-4 md:mt-8 text-darkgrayblue'>
